@@ -65,7 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		45993DB11FBC241C008B1EDE /* opencv-test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "opencv-test"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45993DB11FBC241C008B1EDE /* OpenCV-Package1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OpenCV-Package1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45993DB41FBC241C008B1EDE /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		45993DBC1FBC2473008B1EDE /* libopencv_photo.3.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_photo.3.3.1.dylib; path = ../../../../usr/local/Cellar/opencv/3.3.1_1/lib/libopencv_photo.3.3.1.dylib; sourceTree = "<group>"; };
 		45993DBD1FBC2473008B1EDE /* libopencv_ccalib.3.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ccalib.3.3.1.dylib; path = ../../../../usr/local/Cellar/opencv/3.3.1_1/lib/libopencv_ccalib.3.3.1.dylib; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		45993DB21FBC241C008B1EDE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				45993DB11FBC241C008B1EDE /* opencv-test */,
+				45993DB11FBC241C008B1EDE /* OpenCV-Package1 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,9 +243,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		45993DB01FBC241C008B1EDE /* opencv-test */ = {
+		45993DB01FBC241C008B1EDE /* OpenCV-Package1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 45993DB81FBC241C008B1EDE /* Build configuration list for PBXNativeTarget "opencv-test" */;
+			buildConfigurationList = 45993DB81FBC241C008B1EDE /* Build configuration list for PBXNativeTarget "OpenCV-Package1" */;
 			buildPhases = (
 				45993DAD1FBC241C008B1EDE /* Sources */,
 				45993DAE1FBC241C008B1EDE /* Frameworks */,
@@ -255,9 +255,9 @@
 			);
 			dependencies = (
 			);
-			name = "opencv-test";
+			name = "OpenCV-Package1";
 			productName = "opencv-test";
-			productReference = 45993DB11FBC241C008B1EDE /* opencv-test */;
+			productReference = 45993DB11FBC241C008B1EDE /* OpenCV-Package1 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -275,7 +275,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 45993DAC1FBC241C008B1EDE /* Build configuration list for PBXProject "opencv-test" */;
+			buildConfigurationList = 45993DAC1FBC241C008B1EDE /* Build configuration list for PBXProject "OpenCV-Package1" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -287,7 +287,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				45993DB01FBC241C008B1EDE /* opencv-test */,
+				45993DB01FBC241C008B1EDE /* OpenCV-Package1 */,
 			);
 		};
 /* End PBXProject section */
@@ -442,7 +442,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		45993DAC1FBC241C008B1EDE /* Build configuration list for PBXProject "opencv-test" */ = {
+		45993DAC1FBC241C008B1EDE /* Build configuration list for PBXProject "OpenCV-Package1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45993DB61FBC241C008B1EDE /* Debug */,
@@ -451,7 +451,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45993DB81FBC241C008B1EDE /* Build configuration list for PBXNativeTarget "opencv-test" */ = {
+		45993DB81FBC241C008B1EDE /* Build configuration list for PBXNativeTarget "OpenCV-Package1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45993DB91FBC241C008B1EDE /* Debug */,

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:opencv-test.xcodeproj">
+      location = "self:/Users/czwstc/playground/Opencv/opencv-git/OpenCV-Package1.xcodeproj">
    </FileRef>
 </Workspace>
