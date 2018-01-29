@@ -68,7 +68,7 @@ void on_GoodFeaturesToTrack(int, void*)
 }
 int main()
 {
-    g_srcImage = imread("/Users/czwstc/Desktop/标准测试图.jpg", 1);
+    g_srcImage = imread("/Users/czwstc/playground/Opencv/opencv-git/OpenCV-Package1/Standard TEST PIC.jpg", 1);
     cvtColor(g_srcImage, g_grayImage, CV_BGR2GRAY); //转换灰度
     //【2】创建窗口
     imshow(WINDOW_NAME, g_srcImage);

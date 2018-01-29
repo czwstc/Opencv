@@ -168,7 +168,7 @@
 		45993DA81FBC241C008B1EDE = {
 			isa = PBXGroup;
 			children = (
-				45993DB31FBC241C008B1EDE /* opencv-test */,
+				45993DB31FBC241C008B1EDE /* OpenCV-Package1 */,
 				45993DB21FBC241C008B1EDE /* Products */,
 				45993DBB1FBC2473008B1EDE /* Frameworks */,
 			);
@@ -182,12 +182,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		45993DB31FBC241C008B1EDE /* opencv-test */ = {
+		45993DB31FBC241C008B1EDE /* OpenCV-Package1 */ = {
 			isa = PBXGroup;
 			children = (
 				45993DB41FBC241C008B1EDE /* main.cpp */,
 			);
-			path = "opencv-test";
+			path = "OpenCV-Package1";
 			sourceTree = "<group>";
 		};
 		45993DBB1FBC2473008B1EDE /* Frameworks */ = {
