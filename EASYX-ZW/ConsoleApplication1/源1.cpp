@@ -8,5 +8,5 @@ int main()
 	circle(200, 200, 100);  
 	int i;
 	cin >> i;
-	return 0;
+	//return 0;
 }
