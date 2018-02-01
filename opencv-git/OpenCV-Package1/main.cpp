@@ -3,18 +3,26 @@
 #include<opencv2/imgproc/imgproc.hpp>
 #include <iostream>
 #include <opencv2/opencv.hpp>
-#define WINDOW_NAME "corner Detection"
+#define WINDOW_NAME "Corner Detection"
 using namespace cv;
 using namespace std;
 Mat g_srcImage, g_grayImage;
 int g_maxCornerNumber = 12;
 //int g_maxTrackbarNumber = 500;
-//-----------------------------【on_GoodFeaturesToTrack( )函数】----------------------------
-//          描述：响应滑动条移动消息的回调函数
-//----------------------------------------------------------------------------------------------
+void on_GoodFeaturesToTrack(int, void*);//声明on_GoodFeaturesToTrack( )函数
+int main()
+{
+    g_srcImage = imread("/Users/czwstc/playground/Opencv/opencv-git/OpenCV-Package1/Standard TEST PIC.jpg", 1);
+    cvtColor(g_srcImage, g_grayImage, CV_BGR2GRAY); //转换灰度
+    //【2】创建窗口
+    imshow(WINDOW_NAME, g_srcImage);
+    on_GoodFeaturesToTrack(0, 0);
+    waitKey(0);
+    return(0);
+}
 void on_GoodFeaturesToTrack(int, void*)
-{   //【1】对变量小于等于1时的处理
-    if (g_maxCornerNumber <= 1) { g_maxCornerNumber = 1; }
+{
+    if (g_maxCornerNumber <= 1) { g_maxCornerNumber = 1; }//【1】对变量小于等于1时的处理
     //【2】Shi-Tomasi算法（goodFeaturesToTrack函数）的参数准备
     vector<Point2f> corners;
     double qualityLevel = 0.02;//角点检测可接受的最小特征值
@@ -34,28 +42,22 @@ void on_GoodFeaturesToTrack(int, void*)
                         k);//权重系数
     //【4】输出文字信息
     cout << "\n\t>-------------此次检测到的角点数量为：" << corners.size() << endl;
-    
-    for (int i = 0; i<corners.size(); i++){
+    for (int i = 0; i<corners.size(); i++){ //输出二维坐标
         cout << "二维坐标" << i << "  (" << corners[i].x << "," << corners[i].y << ")" << endl;
-        stringstream tmp;
-        stringstream tmp2;
+    }
+    //【5】绘制检测到的角点
+    for (unsigned int i = 0; i < corners.size(); i++)
+    {
+        int r = 4;//圆的半径为4
+        circle(copy, corners[i], r, Scalar(0,0,0), -1, 8, 0);//黑色绘制出角点
+        stringstream tmp; //打印检测到的位置
         string str;
-        tmp << corners[i].x << "," <<corners[i].y;
+        tmp << corners[i].x << "," <<corners[i].y <<"(" << i << ")" ;
         tmp >> str;
         putText(copy, str, corners[i], cv::FONT_HERSHEY_DUPLEX, 0.5, cv::Scalar(0, 0,0 ), 1);
     }
-    //【5】绘制检测到的角点
-    int r = 4;
-    for (unsigned int i = 0; i < corners.size(); i++)
-    {
-        //以随机的颜色绘制出角点
-        circle(copy, corners[i], r, Scalar(0,0,0), -1, 8, 0);
-       
-    }
-    //【6】显示（更新）窗口
-    imshow(WINDOW_NAME, copy);
-    //【7】亚像素角点检测的参数设置
-    Size winSize = Size(5, 5);
+    imshow(WINDOW_NAME, copy);    //【6】显示（更新）窗口
+    Size winSize = Size(5, 5);  //【7】亚像素角点检测的参数设置
     Size zeroZone = Size(-1, -1);
     TermCriteria criteria = TermCriteria(CV_TERMCRIT_EPS + CV_TERMCRIT_ITER, 40, 0.001);
     //【8】计算出亚像素角点位置
@@ -65,16 +67,6 @@ void on_GoodFeaturesToTrack(int, void*)
     {
         cout << "精确二维坐标[" << i << "]  (" << corners[i].x << "," << corners[i].y << ")" << endl;
     }
-}
-int main()
-{
-    g_srcImage = imread("/Users/czwstc/playground/Opencv/opencv-git/OpenCV-Package1/Standard TEST PIC.jpg", 1);
-    cvtColor(g_srcImage, g_grayImage, CV_BGR2GRAY); //转换灰度
-    //【2】创建窗口
-    imshow(WINDOW_NAME, g_srcImage);
-    on_GoodFeaturesToTrack(0, 0);
-    waitKey(0);
-    return(0);
 }
 Point2f CrossPoint(const Vec4i  line1, const Vec4i   line2)  //计算两条直线的交点。直线由整数向量形式提供。
 {
