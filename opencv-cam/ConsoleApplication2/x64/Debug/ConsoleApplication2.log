@@ -1,7 +1,8 @@
-﻿  ConsoleApplication2.cpp
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (ConsoleApplication2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  OPENCV-cam.cpp
 d:\opencv\build\include\opencv2\core\mat.hpp(2586): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\opencv\build\include\opencv2\core\persistence.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\opencv\build\include\opencv2\core\utility.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\opencv\build\include\opencv2\imgproc.hpp(592): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  ConsoleApplication2.vcxproj -> E:\tmp\ConsoleApplication2\x64\Debug\ConsoleApplication2.exe
-  ConsoleApplication2.vcxproj -> E:\tmp\ConsoleApplication2\x64\Debug\ConsoleApplication2.pdb (Full PDB)
+  ConsoleApplication2.vcxproj -> C:\Users\Administrator\Documents\GitHub\Opencv\opencv-cam\x64\Debug\opencv-cam.exe
+  ConsoleApplication2.vcxproj -> C:\Users\Administrator\Documents\GitHub\Opencv\opencv-cam\x64\Debug\opencv-cam.pdb (Full PDB)

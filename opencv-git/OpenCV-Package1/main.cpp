@@ -75,7 +75,7 @@ void on_GoodFeaturesToTrack(int, void*)
     for (unsigned int i = 0; i < corners.size(); i++)
     {
         int r = 4;//圆的半径为4
-        circle(copy, corners[i], r, Scalar(0,0,0), -1, 8, 0);//黑色绘制出角点
+        circle(copy, corners[i], r, Scalar(22,22,22), -1, 8, 0);//黑色绘制出角点
         stringstream tmp; //打印检测到的位置
         string str;
         tmp << corners[i].x << "," <<corners[i].y <<"(" << i << ")" ;
