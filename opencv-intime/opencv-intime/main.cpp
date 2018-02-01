@@ -6,29 +6,47 @@
 #define WINDOW_NAME "Corner Detection"
 using namespace cv;
 using namespace std;
-Mat g_srcFrame, g_grayImage;
+Mat g_srcImage, g_grayImage;
 int g_maxCornerNumber = 12;
+//int g_maxTrackbarNumber = 500;
 void on_GoodFeaturesToTrack(int, void*);//声明on_GoodFeaturesToTrack( )函数
 int main()
 {
-VideoCapture  capture(0);
+    VideoCapture  capture(0);
+    Mat frame;
     char key;
+    //    char filename[200];
+    //    int count = 0;
+    
     if (!capture.isOpened()){
-        cout << "Fail to open the camera！check the camera！" << endl;
+        cout << "摄像头打开失败！" << endl;
         return -1;
     }
-    while (1)
+    for(;;)
     {
         key = waitKey(50);
-        capture >> g_srcFrame;
-        imshow("Realtime Video", g_srcFrame);
-        if (key == 27)
-            break;//按ESC键退出循环
+        capture >> frame;
+        imshow("Video", frame);
+        if (key == 27) break;
+        //******************************************************************************************
+        /*        if (key == 32)//按空格键进行拍照
+         {
+         //            sprintf(filename, "Picture %d.jpg", ++count);//拍照以Picture 1.2.3、、、.jpg命名
+         //            imwrite(filename, frame);//图片保存到本工程目录中
+         imshow("【图片】", frame);
+         }
+         */
+        //******************************************************************************************
+        
+        g_srcImage = frame;
+        
+        //    g_srcImage = imread("/Users/czwstc/playground/Opencv/opencv-git/OpenCV-Package1/Standard TEST PIC.jpg", 1);
+        cvtColor(g_srcImage, g_grayImage, CV_BGR2GRAY); //转换灰度
+        //【2】创建窗口
+        imshow(WINDOW_NAME, g_srcImage);
+        on_GoodFeaturesToTrack(0, 0);
     }
-    cvtColor(g_srcFrame, g_grayImage, CV_BGR2GRAY); //转换灰度
-    imshow(WINDOW_NAME, g_srcFrame);//创建窗口
-    on_GoodFeaturesToTrack(0, 0);//调用方法
-    waitKey(0);//等待退出指令
+    waitKey(0);
     return(0);
 }
 void on_GoodFeaturesToTrack(int, void*)
@@ -40,7 +58,7 @@ void on_GoodFeaturesToTrack(int, void*)
     double minDistance = 30;//角点之间的最小距离
     int blockSize = 4;//计算导数自相关矩阵时指定的邻域范围
     double k = 0.04;//权重系数
-    Mat copy = g_srcFrame.clone();  //复制源图像到一个临时变量中，作为感兴趣区域
+    Mat copy = g_srcImage.clone();  //复制源图像到一个临时变量中，作为感兴趣区域
     //【3】进行Shi-Tomasi角点检测
     goodFeaturesToTrack(g_grayImage,//输入图像
                         corners,//检测到的角点的输出向量
@@ -51,11 +69,12 @@ void on_GoodFeaturesToTrack(int, void*)
                         blockSize,//计算导数自相关矩阵时指定的邻域范围
                         false,//不使用Harris角点检测
                         k);//权重系数
-    //【4】输出文字信息
-    cout << "\n\t>-------------此次检测到的角点数量为：" << corners.size() << endl;
-    for (int i = 0; i<corners.size(); i++){ //输出二维坐标
-        cout << "二维坐标" << i << "  (" << corners[i].x << "," << corners[i].y << ")" << endl;
-    }
+    /* //【4】输出文字信息
+     cout << "\n\t>-------------此次检测到的角点数量为：" << corners.size() << endl;
+     
+     for (int i = 0; i<corners.size(); i++){ //输出二维坐标
+     cout << "二维坐标" << i << "  (" << corners[i].x << "," << corners[i].y << ")" << endl;
+     }*/
     //【5】绘制检测到的角点
     for (unsigned int i = 0; i < corners.size(); i++)
     {
