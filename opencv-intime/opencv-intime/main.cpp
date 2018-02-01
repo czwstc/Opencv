@@ -8,39 +8,22 @@ using namespace cv;
 using namespace std;
 Mat g_srcImage, g_grayImage;
 int g_maxCornerNumber = 12;
-//int g_maxTrackbarNumber = 500;
 void on_GoodFeaturesToTrack(int, void*);//声明on_GoodFeaturesToTrack( )函数
 int main()
 {
     VideoCapture  capture(0);
     Mat frame;
     char key;
-    //    char filename[200];
-    //    int count = 0;
-    
     if (!capture.isOpened()){
-        cout << "摄像头打开失败！" << endl;
+        cout << "Fail to open Cramera ！" << endl;
         return -1;
     }
     for(;;)
     {
         key = waitKey(50);
         capture >> frame;
-        imshow("Video", frame);
         if (key == 27) break;
-        //******************************************************************************************
-        /*        if (key == 32)//按空格键进行拍照
-         {
-         //            sprintf(filename, "Picture %d.jpg", ++count);//拍照以Picture 1.2.3、、、.jpg命名
-         //            imwrite(filename, frame);//图片保存到本工程目录中
-         imshow("【图片】", frame);
-         }
-         */
-        //******************************************************************************************
-        
         g_srcImage = frame;
-        
-        //    g_srcImage = imread("/Users/czwstc/playground/Opencv/opencv-git/OpenCV-Package1/Standard TEST PIC.jpg", 1);
         cvtColor(g_srcImage, g_grayImage, CV_BGR2GRAY); //转换灰度
         //【2】创建窗口
         imshow(WINDOW_NAME, g_srcImage);
@@ -69,17 +52,11 @@ void on_GoodFeaturesToTrack(int, void*)
                         blockSize,//计算导数自相关矩阵时指定的邻域范围
                         false,//不使用Harris角点检测
                         k);//权重系数
-    /* //【4】输出文字信息
-     cout << "\n\t>-------------此次检测到的角点数量为：" << corners.size() << endl;
-     
-     for (int i = 0; i<corners.size(); i++){ //输出二维坐标
-     cout << "二维坐标" << i << "  (" << corners[i].x << "," << corners[i].y << ")" << endl;
-     }*/
     //【5】绘制检测到的角点
     for (unsigned int i = 0; i < corners.size(); i++)
     {
         int r = 4;//圆的半径为4
-        circle(copy, corners[i], r, Scalar(22,22,22), -1, 8, 0);//黑色绘制出角点
+        circle(copy, corners[i], r, Scalar(220,220,200), -1, 8, 0);//黑色绘制出角点
         stringstream tmp; //打印检测到的位置
         string str;
         tmp << corners[i].x << "," <<corners[i].y <<"(" << i << ")" ;
