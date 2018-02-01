@@ -12,7 +12,33 @@ int g_maxCornerNumber = 12;
 void on_GoodFeaturesToTrack(int, void*);//声明on_GoodFeaturesToTrack( )函数
 int main()
 {
-    g_srcImage = imread("/Users/czwstc/playground/Opencv/opencv-git/OpenCV-Package1/Standard TEST PIC.jpg", 1);
+    VideoCapture  capture(0);
+    Mat frame;
+    char key;
+//    char filename[200];
+//    int count = 0;
+    
+    if (!capture.isOpened()){
+        cout << "摄像头打开失败！" << endl;
+        return -1;
+    }
+    while (1)
+    {
+        key = waitKey(50);
+        capture >> frame;
+        imshow("【视频】", frame);
+        if (key == 27)
+            break;//按ESC键退出程序
+        if (key == 32)//按空格键进行拍照
+        {
+//            sprintf(filename, "Picture %d.jpg", ++count);//拍照以Picture 1.2.3、、、.jpg命名
+//            imwrite(filename, frame);//图片保存到本工程目录中
+            imshow("【图片】", frame);
+        }
+    }
+    g_srcImage = frame;  //
+
+//    g_srcImage = imread("/Users/czwstc/playground/Opencv/opencv-git/OpenCV-Package1/Standard TEST PIC.jpg", 1);
     cvtColor(g_srcImage, g_grayImage, CV_BGR2GRAY); //转换灰度
     //【2】创建窗口
     imshow(WINDOW_NAME, g_srcImage);
