@@ -1,9 +1,5 @@
 #include<Servo.h>
-#include <IRremote.h>
 
-int recvPin = 13;//定义红外接收器的引脚为3
-IRrecv irrecv(recvPin);
-decode_results results;
 Servo a,b,c,d;
 int i,j;
 long KEY_CODE_CHL = 0xFFA25D;//前进
@@ -21,7 +17,7 @@ long KEY_CODE_LONG_PRESS = 0xFFFFFFFF;
 long longPressKey = -1; //长按下的那个键
 void setup() 
 {
-   irrecv.enableIRIn(); // 初始化红外接收器
+  irrecv.enableIRIn(); // 初始化红外接收器
   Serial.begin(9600);
   for(i=2;i<9;i++)
   {if(i==2||i==4||i==7||i==8)
