@@ -46,6 +46,7 @@ void setup()
   {
   Serial.begin(9600);
   Serial.println("Ready");
+  Serial.println("输入0000 手动初始化，0001自动初始化（emmm，有未知bug），0002准备夹，0003夹了就跑。0004 放手");
   a.attach(3);  b.attach(5);  c.attach(6);  d.attach(9);  e.attach(10); f.attach(11);
   a.write(90);  b.write(90);  c.write(90);  d.write(90);  e.write(90);  f.write(90); 
   }
@@ -64,7 +65,7 @@ void loop()
   //动作0
   if (input == "0000" ) 
   {
-    Serial.println("要执行动作0了");
+    Serial.println("要执行动作0了，我被强制初始化了");
     delay(500);
     a.write(90);  b.write(90);  c.write(90);  d.write(90);  e.write(90);  f.write(90); 
   }
@@ -72,7 +73,7 @@ void loop()
   //动作1
   if (input == "0001" ) 
   {
-      Serial.println("我要做动作1了");
+      Serial.println("我要做动作1了，这玩意要搭配0000号动作用");
       delay(500);
       if(j = readposition(1)<90){
       for(i=readposition(1);i<=90;i++) //Servo1
@@ -149,7 +150,7 @@ void loop()
   //动作2
   if (input == "0002" ) 
   {
-    Serial.println("i ma going to run 动作2");
+    Serial.println("我要做先摆好位置");
     delay(500);
     for(i=90;i>=50;i--) //舵机6
     {
@@ -168,20 +169,22 @@ void loop()
     for(i=90;i<=125;i++)//舵机5
     {
       setposition(5,i++);
-      delay(15)
+      delay(15);
     }
+    Serial.println("我要夹了，你准备好了吗？！");
   }
 
   //动作3
   if (input == "0003" ) 
   {
-    Serial.println("i am going to run 动作3 转身");
+    Serial.println("我夹啦，哈哈哈");
     delay(500);
-    for(i=50;i<90;i++) //Servo6
+    for(i=50;i<75;i++) //Servo6 夹子
     {
       setposition(6,i);
       delay(15);
     }
+    Serial.println("贼鸡儿帅");
     for(i=125;i>=90;i--) //Servo5
     {
       setposition(5,i);
@@ -202,8 +205,18 @@ void loop()
       setposition(1,i);
       delay(15);
     }
-    Serial.println("0003 转身 finished");
+    Serial.println("动作华丽结束");
   }
+  if(input == "0004")//放手
+  {
+    Serial.println("很多事情结束终归是放手")；
+    for(i=75;i>50;i--) //Servo6
+    {
+      setposition(6,i);
+      delay(15);
+    }
+  }
+  
   input = "";
 
   
