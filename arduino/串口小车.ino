@@ -2,7 +2,7 @@
 
 Servo a,b,c,d;
 int i,j;
-
+String input = "";
 void setup() 
 {
   Serial.begin(9600);
@@ -69,7 +69,29 @@ void stop() //stop
 
 void loop() 
 { 
+    //receive command from serial port
+  while (Serial.available()>0) //读取串口数据
+  {
+    input += char(Serial.read());
+    delay(2);
+  }
+  if (input.length()>0) //output the command
+  {
+    Serial.println(input);
+  }
 
+  if(input == "0")
+  {
+    stop();
+  }
+  if(input == "1")
+  {
+    right();
+    delay(3000);
+    stop();
+  }
+
+/*
   //按下CH-键的事件
   if (results.value == KEY_CODE_CHL ) 
   {
@@ -169,4 +191,5 @@ void loop()
   {
     anti_clock_wise();
   }
+  */
 }
