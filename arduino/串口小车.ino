@@ -192,4 +192,5 @@ void loop()
     anti_clock_wise();
   }
   */
+    input = "";
 }
