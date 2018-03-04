@@ -299,13 +299,31 @@ void loop()
  {
     SetZero();
  }
-  //动作3
-  if (input == "0002" ) 
+  if (input == "0003" ) 
  {
     LetGo2();
     LetUp();
     LetDown2();
-  //  SetZero();
+    SetZero();
+ }
+ 
+ if (input == "003" ) 
+ {
+    LetGo();
+ }
+  if (input == "002" ) 
+ {
+    LetGo2();
+ }
+
+  //动作3
+  if (input == "0002" ) 
+ {
+    LetGo();
+    LetUp();
+    LetDown();
+    SetZero();
+    delay(1000);
   }
   input = "";
 
