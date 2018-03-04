@@ -204,7 +204,7 @@ void loop()
       setposition(2,i);
       delay(15);
     }
-    for(i = 90;i<=135;i++)//Servo1
+    for(i = 90;i<=165;i++)//Servo1
     {
       setposition(1,i);
       delay(15);
@@ -219,8 +219,20 @@ void loop()
       setposition(6,i);
       delay(15);
     }
+    
+    for(i=90;i<=150;i++)//Servo2
+    {
+      setposition(2,i);
+      delay(15);
+    }
+
+
+
+
+    
     Serial.println("SEEYA");
   }
+
   
   input = "";
 
