@@ -89,18 +89,18 @@ void LetDown2()
       delay(10);
     }
     Serial.println("很多事情结束终归是放手");
-    for(i=90;i<=114;i++)//Servo2
+    for(i=90;i<=112;i++)//Servo2
     {
       setposition(2,i);
       delay(10);
     }
     
-    for(i=90;i>=75;i--) //Servo3
+    for(i=90;i>=78;i--) //Servo3
     {
       setposition(3,i);
       delay(10);
     }
-    for(i=90;i<=140 ;i++) //Servo5
+    for(i=90;i<=144 ;i++) //Servo5
     {
       setposition(5,i);
       delay(10);
