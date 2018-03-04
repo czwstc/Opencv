@@ -76,6 +76,32 @@ void loop()
   {
       Serial.println("我要做动作1了，这玩意贼鸡儿好用，自动缓慢的还原，缓慢初始化！！！");
       delay(500);
+      
+      if(j = c.read()<90){
+      for(i=c.read();i<=90;i++){//Servo3
+        setposition(3,i);
+        delay(15);
+      }}
+      if(j = c.read()>90){
+      for(i=c.read();i>=90;i--)//Servo3
+      {
+        setposition(3,i); 
+        delay(15);
+      }}
+      
+      if( j = b.read()<90){
+      for(i=  b.read();i<=90;i++){//Servo2
+        setposition(2,i);
+        delay(15);
+      }}
+      if(j = b.read()>90){
+      for(i =b.read();i>=90;i--)//Servo2
+      {
+        setposition(2,i); 
+        delay(15);
+      }}
+
+      
       if(j = a.read()<90){
       for(i=a.read();i<=90;i++) //Servo1
       {
@@ -88,28 +114,8 @@ void loop()
         setposition(1,i); 
         delay(15);
       }}
-      if(j = c.read()<90){
-      for(i=c.read();i<=90;i++){//Servo3
-        setposition(3,i);
-        delay(15);
-      }}
-      if(j = c.read()>90){
-      for(i=c.read();i>=90;i--)//Servo3
-      {
-        setposition(3,i); 
-        delay(15);
-      }}
-      if( j = b.read()<90){
-      for(i=  b.read();i<=90;i++){//Servo2
-        setposition(2,i);
-        delay(15);
-      }}
-      if(j = b.read()>90){
-      for(i =b.read();i>=90;i--)//Servo2
-      {
-        setposition(2,i); 
-        delay(15);
-      }}
+     
+     
       if(j = d.read()<90){
       for(i=d.read();i<=90;i++)//Servo4
       {
@@ -183,7 +189,7 @@ void loop()
   {
     Serial.println("收到，我要夹啦，哈哈哈");
     delay(500);
-    for(i=50;i<75;i++) //Servo6 夹子
+    for(i=50;i<73;i++) //Servo6 夹子
     {
       setposition(6,i);
       delay(15);
@@ -214,20 +220,30 @@ void loop()
   if(input == "0004")//放手
   {
     Serial.println("很多事情结束终归是放手");
-    for(i=75;i>50;i--) //Servo6
-    {
-      setposition(6,i);
-      delay(15);
-    }
     
-    for(i=90;i<=150;i++)//Servo2
+    for(i=90;i<=120;i++)//Servo2
     {
       setposition(2,i);
       delay(15);
     }
+    
+    for(i=90;i>=60;i--) //Servo3
+    {
+      setposition(3,i);
+      delay(15);
+    }
+    
+    for(i=90;i<=130 ;i++) //Servo5
+    {
+      setposition(5,i);
+      delay(25);
+    }
 
-
-
+    for(i=73;i>50;i--) //Servo6
+    {
+      setposition(6,i);
+      delay(15);
+    }
 
     
     Serial.println("SEEYA");
