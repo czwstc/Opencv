@@ -52,6 +52,11 @@ void setup()
   }
 void LetDown()
 {
+     for(i = 90;i<=165;i++)//Servo1
+    {
+      setposition(1,i);
+      delay(10);
+    }
     Serial.println("很多事情结束终归是放手");
     for(i=90;i<=120;i++)//Servo2
     {
@@ -70,6 +75,43 @@ void LetDown()
       delay(10);
     }
     for(i=73;i>50;i--) //Servo6
+    {
+      setposition(6,i);
+      delay(10);
+    }
+    Serial.println("SEEYA");
+}
+void LetDown2()
+{   
+    for(i = 90;i<=157;i++)//Servo1
+    {
+      setposition(1,i);
+      delay(10);
+    }
+    Serial.println("很多事情结束终归是放手");
+    for(i=90;i<=114;i++)//Servo2
+    {
+      setposition(2,i);
+      delay(10);
+    }
+    
+    for(i=90;i>=75;i--) //Servo3
+    {
+      setposition(3,i);
+      delay(10);
+    }
+    for(i=90;i<=140 ;i++) //Servo5
+    {
+      setposition(5,i);
+      delay(10);
+    }
+    for(i=90;i<=93 ;i++) //Servo4
+    {
+      setposition(4,i);
+      delay(10);
+    }
+  
+    for(i=f.read();i>50;i--) //Servo6
     {
       setposition(6,i);
       delay(10);
@@ -105,30 +147,25 @@ void LetUp()
 { 
     Serial.println("收到，我要夹啦，哈哈哈");
     delay(500);
-    for(i=50;i<73;i++) //Servo6 夹子
+    for(i=f.read();i<73;i++) //Servo6 夹子
     {
       setposition(6,i);
       delay(10);
     }
     Serial.println("贼鸡儿帅");
-    for(i=125;i>=90;i--) //Servo5
+    for(i=e.read();i>=90;i--) //Servo5
     {
       setposition(5,i);
       delay(10);
     }
-    for(i=40;i<=90;i++) //Servo3
+    for(i=c.read();i<=90;i++) //Servo3
     {
       setposition(3,i);
       delay(10);
     }
-    for(i=170;i>=90;i--)//Servo2
+    for(i=b.read();i>=90;i--)//Servo2
     {
       setposition(2,i);
-      delay(10);
-    }
-    for(i = 90;i<=165;i++)//Servo1
-    {
-      setposition(1,i);
       delay(10);
     }
     Serial.println("动作华丽结束，木块在我手里！，你想要吗？");
@@ -217,7 +254,28 @@ void SetZero()
 } 
 void LetGo2()
 {
-  
+    Serial.println("我要做开始第二次拿东西了，好烦呀");
+    delay(500);
+    for(i=90;i>=50;i--) //舵机6
+    {
+      setposition(6,i);
+      delay(10);}
+    for(i=90;i<=150;i++)//舵机2
+    { 
+      setposition(2,i);
+      delay(10);
+    }
+    for(i=90;i>40;i--)//舵机3
+    {
+      setposition(3,i);
+      delay(10);
+    }
+    for(i=90;i<=125;i++)//舵机5
+    {
+      setposition(5,i++);
+      delay(10);
+    }
+    Serial.println("我要夹了，你准备好了吗？！准备好了就抠键盘！");
 }
 
 
@@ -244,11 +302,10 @@ void loop()
   //动作3
   if (input == "0002" ) 
  {
-    LetGo();
- /*   LetUp();
-    LetDown();
-    SetZero();
-  */
+    LetGo2();
+    LetUp();
+    LetDown2();
+  //  SetZero();
   }
   input = "";
 
