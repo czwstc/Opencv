@@ -10,5 +10,4 @@ Webcam is also ok. it can be modified to be a realtime tool.
 But i don't know how to make it more lively, or find other useage.
 
 oh,i almost forget.
-
-# one webcam
+### ONLY ONE CAM
