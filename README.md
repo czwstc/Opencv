@@ -1,4 +1,6 @@
-# Opencv
+# OpencvCornerDetection
+
+
 一个项目，决定开源了。之前还都是私有库来着。
 
 然后我近期稍稍改成人能看懂的东西发出来。
